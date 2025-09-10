@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Product from "../components/Product/Product";
 
-const Product = () => {
+const ProductPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -19,11 +20,21 @@ const Product = () => {
       });
   }, []);
 
+  const BuildProducts = () => {
+    return (
+      <div className="flex flex-wrap gap-10">
+        {products.map((item) => (
+          <Product item={item} />
+        ))}
+      </div>
+    );
+  };
+
   return (
-    <div>
-      {loading ? <h2>Loading...</h2> : error ? "error..." : "got the products"}
+    <div className="py-[50px]">
+      {loading ? <h2>Loading...</h2> : error ? "error..." : <BuildProducts />}
     </div>
   );
 };
 
-export default Product;
+export default ProductPage;

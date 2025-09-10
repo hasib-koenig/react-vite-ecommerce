@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
+import Products from "./pages/ProductsPage";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 
 const App = () => {
