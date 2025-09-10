@@ -22,6 +22,8 @@ const Product = () => {
   return (
     <div>
       {loading ? <h2>Loading...</h2> : error ? "error..." : "got the products"}
+
+      {loading && <h1>loading..</h1>}
     </div>
   );
 };

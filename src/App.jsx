@@ -1,21 +1,27 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { AdminLayout, CustomerLayout, SellerLayout } from "./layouts";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <div className="px-[100px]">
-        <Routes>
+      <Routes>
+        {/* customers layout starts here */}
+        <Route path="/" element={<CustomerLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/products" element={<Products />} />
-        </Routes>
-      </div>
-      <Footer />
+        </Route>
+        {/* customers layout ends here */}
+
+        {/* admin layout starts here */}
+        <Route path="/admin" element={<AdminLayout />} />
+        {/* admin layout ends here */}
+
+        {/* seller layout starts here */}
+        <Route path="/seller" element={<SellerLayout />} />
+        {/* seller layout ends here */}
+      </Routes>
     </BrowserRouter>
   );
 };

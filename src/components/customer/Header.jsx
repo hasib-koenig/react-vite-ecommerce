@@ -13,7 +13,7 @@ const Header = () => {
 
       {/* Navigation */}
       <nav className="hidden md:flex space-x-8 text-lg font-medium">
-        <Link to="/home" className="hover:text-white transition-colors">
+        <Link to="/" className="hover:text-white transition-colors">
           Home
         </Link>
         <Link to="/products" className="hover:text-white transition-colors">
