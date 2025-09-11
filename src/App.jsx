@@ -1,28 +1,25 @@
+import { Provider, useDispatch } from "react-redux";
+import { store } from "./redux/store";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { CustomerLayout, AdminLayout, SellerLayout } from "./layouts";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router";
-import { AdminLayout, CustomerLayout, SellerLayout } from "./layouts";
+import Counter from "./components/counter";
+import { inc, dec } from "./redux/features/counterSlice";
 
 const App = () => {
+  const dispatch = useDispatch();
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* customers layout starts here */}
-        <Route path="/" element={<CustomerLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-        </Route>
-        {/* customers layout ends here */}
-
-        {/* admin layout starts here */}
-        <Route path="/admin" element={<AdminLayout />} />
-        {/* admin layout ends here */}
-
-        {/* seller layout starts here */}
-        <Route path="/seller" element={<SellerLayout />} />
-        {/* seller layout ends here */}
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Counter />
+      <button
+        onClick={() => {
+          dispatch(dec());
+        }}
+      >
+        Dec
+      </button>
+    </>
   );
 };
 
